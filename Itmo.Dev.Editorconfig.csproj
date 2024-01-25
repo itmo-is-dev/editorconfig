@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <UseArtifactsOutput>true</UseArtifactsOutput>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>Itmo.Dev.Editorconfig</Title>
+        <Description>Shared .editorconfig for itmo-is-dev projects</Description>
+        <Authors>itmo-is-dev</Authors>
+        <PackageProjectUrl>https://github.com/itmo-is-dev/editorconfig</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/itmo-is-dev/editorconfig</RepositoryUrl>
+        <NoDefaultExcludes>true</NoDefaultExcludes>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PatchVersion>0</PatchVersion>
+        <Version>1.0.$(PatchVersion)</Version>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageReleaseNotes>
+            Added .editorconfig
+        </PackageReleaseNotes>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="Itmo.Dev.Editorconfig.props" Pack="true" PackagePath="\build" />
+        <None Include=".editorconfig" Pack="true" PackagePath="\content\Rules" />
+    </ItemGroup>
+
+</Project>

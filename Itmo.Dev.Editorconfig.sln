@@ -1,8 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itmo.Dev.Editorconfig", "Itmo.Dev.Editorconfig.csproj", "{2F14E81C-EDCA-4BF6-B35C-9B3CF969E541}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{7DD84AE0-6604-44D2-BC63-38518DAAE9DB}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F14E81C-EDCA-4BF6-B35C-9B3CF969E541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F14E81C-EDCA-4BF6-B35C-9B3CF969E541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F14E81C-EDCA-4BF6-B35C-9B3CF969E541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F14E81C-EDCA-4BF6-B35C-9B3CF969E541}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

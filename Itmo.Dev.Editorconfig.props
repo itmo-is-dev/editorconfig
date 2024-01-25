@@ -1,0 +1,41 @@
+<Project>
+
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <WarningLevel>999</WarningLevel>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <NoWarn Condition="$(IsTestProject) == 'true'">
+            $(NoWarn);1701;1702;IL2121;CA1707;SA1633;SA1309;SA1101;SA1518;SA1502;CA1506
+        </NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EditorConfigFilesToCopy Include="$(MSBuildThisFileDirectory)..\content\Rules\.editorconfig"/>
+    </ItemGroup>
+
+    <!-- *Undefined* is deafult value when dotnet try to build one project -->
+    <Target Name="CopyEditorConfig" BeforeTargets="BeforeBuild" Condition="$(SolutionDir) != '*Undefined*' and $(SolutionDir) != ''">
+        <Message Text="Copying the .editorconfig file from '@(EditorConfigFilesToCopy)' to '$(SolutionDir)'"/>
+        <Copy
+                SourceFiles="@(EditorConfigFilesToCopy)"
+                DestinationFolder="$(SolutionDir)"
+                SkipUnchangedFiles="true"
+                UseHardlinksIfPossible="false"/>
+    </Target>
+
+</Project>
