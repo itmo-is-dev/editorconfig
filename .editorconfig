@@ -17,6 +17,10 @@ dotnet_style_qualification_for_property = false:warning
 dotnet_style_qualification_for_method = false:warning
 dotnet_style_qualification_for_event = false:warning
 
+dotnet_diagnostic.SA1633.severity = none
+dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.SA1502.severity = none
+
 dotnet_diagnostic.SA1010.severity = none
 
 dotnet_diagnostic.ide0004.severity = warning
