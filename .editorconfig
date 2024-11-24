@@ -322,6 +322,14 @@ csharp_style_prefer_tuple_swap = false:suggestion
 dotnet_diagnostic.ide1005.severity = suggestion
 csharp_style_conditional_delegate_call = true:suggestion
 
+# IDE0290
+dotnet_diagnostic.ide0290.severity = none
+csharp_style_prefer_primary_constructors = false
+
+# IDE0305
+dotnet_diagnostic.ide0305.severity = none
+dotnet_style_prefer_collection_expression = false
+
 dotnet_diagnostic.ca1000.severity = none
 dotnet_diagnostic.ca1001.severity = warning
 dotnet_diagnostic.ca1002.severity = warning
