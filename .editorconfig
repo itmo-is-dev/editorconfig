@@ -325,6 +325,7 @@ csharp_style_conditional_delegate_call = true:suggestion
 # IDE0290
 dotnet_diagnostic.ide0290.severity = none
 csharp_style_prefer_primary_constructors = false
+resharper_convert_to_primary_constructor_highlighting = none
 
 # IDE0305
 dotnet_diagnostic.ide0305.severity = none
