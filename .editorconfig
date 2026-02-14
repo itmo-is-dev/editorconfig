@@ -605,5 +605,6 @@ dotnet_diagnostic.SA1629.severity = none
 dotnet_diagnostic.SA1602.severity = none
 dotnet_diagnostic.SA1615.severity = none
 dotnet_diagnostic.SA1618.severity = none
+dotnet_diagnostic.SA1206.severity = none
 
 resharper_braces_redundant = false
