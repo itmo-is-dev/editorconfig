@@ -26,10 +26,10 @@ jobs:
           dotnet-version: 10.0.x
 
       - name: restore
-        run: dotnet restore Itmo.Dev.Editorconfig.sln
+        run: dotnet restore Itmo.Dev.Editorconfig.slnx
 
       - name: build
-        run: dotnet build Itmo.Dev.Editorconfig.sln -c Release --no-restore /p:PatchVersion=${{ github.run_number }}
+        run: dotnet build Itmo.Dev.Editorconfig.slnx -c Release --no-restore /p:PatchVersion=${{ github.run_number }}
 
       - name: publish to GitHub nuget repository
         run: |
