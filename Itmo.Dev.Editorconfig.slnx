@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/workflows/">
+    <File Path=".github/workflows/publish.yml" />
+  </Folder>
+  <Project Path="Itmo.Dev.Editorconfig/Itmo.Dev.Editorconfig.csproj" />
+  <Project Path="Itmo.Dev.Editorconfig.Tests/Itmo.Dev.Editorconfig.Tests.csproj" />
+</Solution>

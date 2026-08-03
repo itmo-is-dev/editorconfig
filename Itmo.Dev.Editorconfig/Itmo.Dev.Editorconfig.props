@@ -1,0 +1,62 @@
+<Project>
+
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <WarningLevel>999</WarningLevel>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <NoWarn Condition="$(IsTestProject) == 'true'">
+            $(NoWarn);1701;1702;IL2121;CA1707;SA1633;SA1309;SA1101;SA1518;SA1502;CA1506
+        </NoWarn>
+    </PropertyGroup>
+
+    <!-- *Undefined* is deafult value when dotnet try to build one project -->
+    <Target Name="CopyEditorConfig" BeforeTargets="BeforeBuild" Condition="$(SolutionDir) != '*Undefined*' and $(SolutionDir) != ''">
+
+        <PropertyGroup Condition="'$(EditorconfigOutputPath)' == ''">
+            <EditorconfigOutputPath>$(SolutionDir)</EditorconfigOutputPath>
+        </PropertyGroup>
+
+        <ItemGroup Condition="'$(IsEditorconfigTest)' != 'true'">
+            <EditorConfigFilesToCopy Include="$(MSBuildThisFileDirectory)..\content\Rules\.editorconfig"/>
+        </ItemGroup>
+        <ItemGroup Condition="'$(IsEditorconfigTest)' == 'true'">
+            <EditorConfigFilesToCopy Include="$(MSBuildThisFileDirectory).editorconfig"/>
+        </ItemGroup>
+
+        <Message
+                Condition="'$(IsEditorconfigTest)' == 'true'"
+                Importance="high"
+                Text="Copying the .editorconfig file from '@(EditorConfigFilesToCopy)' to '$(SolutionDir)'"/>
+
+        <ReadLinesFromFile File="@(EditorConfigFilesToCopy)">
+            <Output TaskParameter="Lines" ItemName="TargetEditorConfig"/>
+        </ReadLinesFromFile>
+
+        <ReadLinesFromFile File="$(EditorconfigOutputPath).editorconfig" Condition="Exists('$(EditorconfigOutputPath).editorconfig')">
+            <Output TaskParameter="Lines" ItemName="CurrentEditorConfig"/>
+        </ReadLinesFromFile>
+
+        <Copy
+                Condition="'@(TargetEditorConfig, '\n')' != '@(CurrentEditorConfig, '\n')'"
+                SourceFiles="@(EditorConfigFilesToCopy)"
+                DestinationFolder="$(EditorconfigOutputPath)"
+                SkipUnchangedFiles="true"
+                UseHardlinksIfPossible="false"/>
+    </Target>
+
+</Project>
