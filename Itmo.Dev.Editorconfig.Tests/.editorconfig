@@ -581,6 +581,7 @@ resharper_csharp_empty_block_style = together
 
 csharp_wrap_arguments_style = chop_if_long
 csharp_wrap_chained_method_calls = chop_if_long
+resharper_use_collection_expression_highlighting = none
 
 # ReSharper properties
 resharper_csharp_wrap_after_declaration_lpar = true
